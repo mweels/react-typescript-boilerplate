@@ -1,20 +1,47 @@
 /// <reference path="../typings/tsd.d.ts" />
+import Thunk from 'redux-thunk';
+import { Promise } from 'es6-promise';
 
-export enum ACTION { IncrementCounter, DecrementCounter, AddCounter }
+export enum ACTION { LOGIN_SUBMIT, LOGIN_SUCCESS, LOGIN_FAILURE }
 
-export interface ICounterAction {
+export interface IBaseAction {
   type: ACTION;
-  counterId?: number;
 }
 
-export function incrementCounter(counterId: number): ICounterAction {
-  return { type: ACTION.IncrementCounter, counterId };
+
+export interface IAuthActions {
+  type: ACTION;
+  id: string;
+  password: string;
 }
 
-export function decrementCounter(counterId: number): ICounterAction {
-  return { type: ACTION.DecrementCounter, counterId };
+export function Login_Submit(id: string, password: string): any {
+
+  return function (dispatch) {
+
+    new Promise(function (resolve, reject) {
+
+      setTimeout(function () {
+        console.log("Weee");
+        reject("Weee");
+      }, 2000);
+
+    }).then(function () {
+      console.log("Dispatching.success");
+      dispatch(Login_Success())
+    }).catch((err) => {
+      console.log("Got err");
+      dispatch(Login_Failure());
+    });
+
+  }
 }
 
-export function addCounter(): ICounterAction {
-  return { type: ACTION.AddCounter };
-}
+export function Login_Success(): IBaseAction {
+  return { type: ACTION.LOGIN_SUCCESS };
+};
+
+export function Login_Failure(): IBaseAction {
+  return { type: ACTION.LOGIN_FAILURE };
+};
+

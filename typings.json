@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "bluebird": "registry:npm/bluebird#3.3.4+20160622205516",
+    "es6-promise": "registry:npm/es6-promise#3.0.0+20160211003958",
+    "lodash": "registry:npm/lodash#4.0.0+20160416211519"
+  }
+}

@@ -6,16 +6,25 @@ var APP_DIR = path.join(__dirname, '..', 'app');
 module.exports = {
   debug: true,
   devtool: 'eval',
-  entry: ['webpack-hot-middleware/client', './app/index.tsx'],
+  entry: ['./app/index.ts',
+  'webpack-hot-middleware/client',
+  'webpack/hot/only-dev-server'],
+  
+  
   module: {
     preLoaders: [{
-      test: /\.tsx?$/,
+      test: /\.ts?$/,
       loader: 'tslint',
       include: APP_DIR
-    }],
-    loaders: [{
-      test: /\.tsx?$/,
-      loaders: ['babel', 'ts'],
+    }
+
+    ],
+    loaders: [
+      
+    { test: /\.tag$/, exclude: /node_modules/, loaders: ['babel','riotjs-loader'] },
+    ,{
+      test: /\.ts?$/,
+      loaders: ['babel','ts'],
       include: APP_DIR
     }]
   },
@@ -26,10 +35,14 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+        new webpack.ProvidePlugin({
+      riot: 'riot'
+    })
   ],
   resolve: {
     root: [path.resolve('../app')],
-    extensions: ['', '.jsx', '.js', '.tsx', '.ts']
+    extensions: ['', '.js', '.ts','.tag'],
+    modulesDirectories: ["web_modules", "node_modules", "bower_components"]
+
   }
 };

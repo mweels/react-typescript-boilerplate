@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/keokilee/react-typescript-boilerplate",
   "devDependencies": {
+    "awesome-typescript-loader": "^1.1.1",
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
     "babel-plugin-react-transform": "^2.0.0",
@@ -28,10 +29,14 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "express": "^4.13.4",
+    "file-loader": "^0.9.0",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.2",
     "redbox-react": "^1.2.2",
+    "redux-thunk": "^2.1.0",
     "rimraf": "^2.5.2",
+    "riotjs-loader": "^3.0.0",
+    "script-loader": "^0.7.0",
     "tslint": "^3.3.0",
     "tslint-loader": "^2.1.0",
     "webpack": "^1.12.15",
@@ -39,11 +44,19 @@
     "webpack-hot-middleware": "^2.6.4"
   },
   "dependencies": {
-    "react": "^0.14.7",
+    "bluebird": "^3.4.1",
+    "constructor-utils": "0.0.22",
+    "es6-promise": "^3.2.1",
+    "fetch": "^1.1.0",
+    "json-server": "^0.8.14",
+    "lodash": "^4.13.1",
+    "react": "^0.14.8",
     "react-dom": "^0.14.7",
     "react-redux": "^4.1.2",
-    "redux": "^3.1.5",
+    "redux": "^3.5.2",
+    "riot": "^2.4.1",
     "ts-loader": "^0.8.1",
+    "ts-promise": "^0.3.0",
     "typescript": "^1.7.5"
   }
 }
